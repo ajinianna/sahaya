@@ -5,13 +5,11 @@ var path = require('path');
 var logger = require('morgan');
 var session = require('express-session');
 
-// Import helpers
-var helpers = require('./common/helpers');
-
 // Importing routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var complaintsRouter = require('./routes/complaints');
+var helpers = require('./common/helpers');
 
 // server initialization.
 var app = express();
