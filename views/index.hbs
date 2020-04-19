@@ -1,0 +1,46 @@
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>Login</h1>
+            <form action="./users/login" method="POST">
+                <div class="container">
+                    <label class="radio-inline">
+                        <input type="radio" name="userType" value="portal_user" checked>PORTAL USER
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="userType" value="offficial_user">OFFICIAL
+                    </label>
+                </div>
+                <center><label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" id="inputEmail" name="email" class="form-control my-4" style="width:500px;"
+                        placeholder="Email address" required autofocus></center>
+                <center><label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" name="password" class="form-control my-4" style="width:500px;"
+                        placeholder="Password" required></center>
+                <div class="container">
+                    <input type="submit" class="btn btn-success" value="Login">
+                    <a class="btn btn-secondary" href="./users/signup">Sign Up</a>
+                    <br> <u> <a href="./resetpassword">fogot password?</a></u>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <hr class="featurette-divider">
+                <div class="row featurette">
+                    <div class="col-sm-5">
+                        <p>The Kerala State Police is the state police for the Indian state of Kerala, and is
+                            responsible for statewide law enforcement. The head of the state police is the Director
+                            General of Police (DGP). The current D.G.P. is Lokanath Behera, IPS. The D.G.P. reports
+                            to the Chief Minister of Kerala, who is the chief executive of the state.</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img style="width: 350px; height: 250px;" src="/images/police.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

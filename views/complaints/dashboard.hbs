@@ -1,0 +1,55 @@
+<div class="justify-content-center">
+  <div class="container">
+    <div class="row m-4">
+      <div class="col-8">
+        <h1>
+          <strong>
+            <center>Complaints Dashboard</center>
+          </strong>
+        </h1>
+      </div>
+      <div class="col-4">
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Submit New Complaint
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="/complaints/accident">Accident</a>
+            <a class="dropdown-item" href="/complaints/murder">Murder</a>
+            <a class="dropdown-item" href="/complaints/missing">Missing Person</a>
+            <a class="dropdown-item" href="/complaints/cyber">Cyber Theft</a>
+            <a class="dropdown-item" href="/complaints/other">Other Complaints</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Complainee</th>
+            <th scope="col">Complaint Type</th>
+            <th scope="col">Complaint Date</th>
+            <th scope="col">link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each rows}}
+          <tr>
+            {{#with this}}
+            <th scope="row">{{id}}</th>
+            <td>{{complaint_owner}}</td>
+            <td>{{complaint_type}}</td>
+            <td>{{date}}</td>
+            <td>
+              <a class="btn btn-primary" href="/complaints/{{complaint_type}}/{{id}}">View</a></td>
+            {{/with}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

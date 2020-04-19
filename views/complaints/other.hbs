@@ -1,0 +1,46 @@
+<div class="justify-content-center">
+    <form action="/complaints/other" method="POST">
+        <div class="container form-group">
+            {{#if disableAll}}
+            <fieldset disabled="true">
+                {{/if}}
+                <div class="row mb-4 mt-4">
+                    <div class="col-4">
+                        <h5><strong>DETAILS OF COMPLAINT</strong></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="comment"><label>Please explain your complaint.</label></label>
+                        <textarea class="form-control" rows="5" id="comment"
+                            name="complaintExp">{{form.complaintExp}}</textarea><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="comment1"><label>Damage details, if any.</label></label>
+                        <textarea class="form-control" rows="5" id="comment1"
+                            name="damageExp">{{form.damageExp}}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="comment2"><label>Witness details, if any.</label></label>
+                        <textarea class="form-control" rows="5" id="comment2"
+                            name="witnessExp">{{form.witnessExp}}</textarea>
+                    </div>
+                </div>
+                {{#if disableAll}}
+            </fieldset>
+            {{/if}}
+            <div class="row float-right m-4">
+                <div class="col-12">
+                    {{#unless disableAll}}
+                    <input type="submit" class="btn btn-success btn-lg">
+                    {{/unless}}
+                    <a class="btn btn-secondary btn-lg" href="/complaints">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

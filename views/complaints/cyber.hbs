@@ -1,0 +1,104 @@
+<div class="justify-content-center">
+    <form action="/complaints/cyber" method="POST">
+        <div class="container form-group">
+             {{#if disableAll}}
+            <fieldset disabled="true">
+                {{/if}}
+            <div class="row mb-4 mt-4">
+                <div class="col-4">
+                    <h5><strong>DETAILS OF CYBER THEFT</strong></h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>Date of incident noticed</label>
+                    <input type="date" class="form-control" id="Date of incident noticed" placeholder=""
+                        name="dateIncident" value={{form.dateIncident}}>
+                </div>
+                <div class="col-6">
+                    <label>Time of incident noticed</label>
+                    <input type="Time" class="form-control" id="appt" placeholder="" name="timeIncident"
+                        value={{form.timeIncident}}>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>Type of Cyber attacks</label>
+                    <select class="custom-select" id="gender2" name="attackType">
+                        <option>Choose...</option>
+                        <option value="identityTheft" {{{isSelected form.attackType 'identityTheft'}}}>IDENTITY THEFT
+                        </option>
+                        <option value="internetTime" {{{isSelected form.attackType 'internetTime'}}}>INTERNET TIME THEFT
+                        </option>
+                        <option value="inteluctualProperty" {{{isSelected form.attackType 'inteluctualProperty'}}}>THEFT
+                            OF INTELLUCTAL PROPERTY</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="comment"><label>Suspects(if any)</label></label>
+                    <textarea class="form-control" rows="5" id="comment"
+                        name="suspectsAny">{{form.suspectsAny}}</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12"><label for="comment"><label>Any other Details</label></label>
+                    <textarea class="form-control" rows="5" id="comment"
+                        name="otherDetails">{{form.otherDetails}}</textarea>
+                </div>
+            </div>
+            <div class="row mb-4 mt-4">
+                <div class="col-4">
+                    <h5><strong>DETAILS OF VICTIM</strong></h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label>Name<font color="red">*</font></label> <input type="text" class="form-control"
+                        id="Name" required placeholder="" name="nameVictim" value={{form.nameVictim}}>
+                </div>
+                <div class="col-6">
+                    <label>Gender</label>
+                    <select class="custom-select" id="gender2" name="gender">
+                        <option>Choose...</option>
+                        <option value="male" {{{isSelected form.gender 'male'}}}>Male</option>
+                        <option value="female" {{{isSelected form.gender 'female'}}}>Female</option>
+                        <option value="other" {{{isSelected form.gender 'others'}}}>Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"> <label>Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="" name="emailId"
+                        value={{form.emailId}}>
+                </div>
+                <div class="col-6"><label>Birth Date</label>
+                    <input type="text" class="form-control" id="Birth date" placeholder="dd/mm/yyyy" name="birthDate"
+                        value={{form.birthDate}}>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"> <label>Address</label>
+                    <input type="text" class="form-control" id="" placeholder="1234 Main St" name="addressVictim"
+                        value={{form.addressVictim}}>
+                </div>
+                <div class="col-6"> <label>Number</label>
+                    <input type="text" class="form-control" id="" placeholder="+91" name="phoneNumber"
+                        value={{form.phoneNumber}}>
+                </div>
+            </div>
+            {{#if disableAll}}
+            </fieldset>
+            {{/if}}
+            <div class="row float-right m-4">
+                <div class="col-12">
+                    {{#unless disableAll}}
+                    <input type="submit" class="btn btn-success btn-lg">
+                    {{/unless}}
+                    <a class="btn btn-secondary btn-lg" href="/complaints">Back</a>
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+</div>

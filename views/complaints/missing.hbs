@@ -1,0 +1,124 @@
+<div class="justify-content-center">
+    <form action="/complaints/missing" method="POST">
+        <div class="container form-group">
+            {{#if disableAll}}
+            <fieldset disabled="true">
+                {{/if}}
+                <div class="row mb-4 mt-4">
+                    <div class="col-4">
+                        <h5><strong>DETAILS OF MISSING PERSON</strong></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"> <label>Date of incident</label>
+                        <input type="date" class="form-control" id="Date of incident" placeholder="" name="dateIncident"
+                            value={{form.dateIncident}}>
+                    </div>
+                    <div class="col-6">
+                            <label>Time of incident</label>
+                            <input type="Time" class="form-control" id="appt" placeholder="" name="timeIncident"
+                                value={{form.timeIncident}}>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><label>Location</label>
+                        <input type="text" class="form-control" id="Location" placeholder="" name="locationDetails"
+                            value={{form.locationDetails}}>
+                    </div>
+                    <div class="col-6"><label>Colour of dress</label>
+                        <input type="text" class="form-control" placeholder="" name="colourDress"
+                            value={{form.colourDress}}>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><label>Age</label>
+                        <input type="text" class="form-control" placeholder="" name="agePerson"
+                            value={{form.agePerson}}>
+                    </div>
+                    <div class="col-6"><label>Causes of missing</label>
+                        <select class="custom-select" id="gender2" name="causes">
+                            <option>Choose...</option>
+                            <option value="mentalProblem" {{{isSelected form.causes 'mentalProblem'}}}>Mental problem
+                            </option>
+                            <option value="quarrellingHappend" {{{isSelected form.causes 'quarllngHappend'}}}>
+                                Quarrelling
+                                happened</option>
+                            <option value="alzheimersDisease" {{{isSelected form.causes 'alzheimersDisease'}}}>
+                                Alzheimers person
+                            </option>
+                            <option value="noLook" {{{isSelected form.causes 'noLook'}}}>No one to look after</option>
+                            <option value="otherProblem" {{{isSelected form.causes 'otherProblem'}}}>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><label>Type of complexions </label>
+                        <select class="custom-select" id="gender2" name="complexions">
+                            <option>Choose...</option>
+                            <option value="veryFair" {{{isSelected form.complexions 'veryFair'}}}>Very fair</option>
+                            <option value="fair" {{{isSelected form.complexions 'fair'}}}>Fair</option>
+                            <option value="medium" {{{isSelected form.complexions 'medium'}}}>Medium</option>
+                            <option value="oliver" {{{isSelected form.complexions 'olive'}}}>Olive</option>
+                            <option value="brown" {{{isSelected form.complexions 'brown'}}}>Brown</option>
+                        </select>
+                    </div>
+                    <div class="col-6"><label>Possibility of missing </label>
+                        <select class="custom-select" id="gender2" name="possibility">
+                            <option>Choose...</option>
+                            <option value="tookSomeone" {{{isSelected form.possibility 'tookSomeone'}}}>Took by someone
+                            </option>
+                            <option value="goneThemselves" {{{isSelected form.possibility 'goneThemselves'}}}>Gone by
+                                themself
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><label>Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="" name="emailId"
+                            value={{form.emailId}}>
+                    </div>
+                    <div class="col-6"><label>Birth Date</label>
+                        <input type="text" class="form-control" id="Birth date" placeholder="dd/mm/yyyy"
+                            name="birthDate" value={{form.birthDate}}>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><label>Gender</label>
+                        <select class="custom-select" id="gender2" name="gender">
+                            <option>Choose...</option>
+                            <option value="male" {{{isSelected form.gender 'male'}}}>Male</option>
+                            <option value="female" {{{isSelected form.gender 'female'}}}>Female</option>
+                            <option value="others" {{{isSelected form.gender 'others'}}}>Others</option>
+                        </select>
+                    </div>
+                    <div class="col-6"><label>Relationship with missing person</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="relationshipPerson"
+                            value={{form.relationshipPerson}}>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><label>Address</label>
+                        <input type="text" class="form-control" id="" placeholder="1234 Main St" name="addressDetails"
+                            value={{form.addressDetails}}>
+                    </div>
+                    <div class="col-6"><label>Number</label>
+                        <input type="tel" class="form-control" id="" placeholder="+91" name="phoneNumber"
+                            value={{form.phoneNumber}}>
+                    </div>
+                </div>
+                {{#if disableAll}}
+            </fieldset>
+            {{/if}}
+            <div class="row float-right m-4">
+                <div class="col-12">
+                    {{#unless disableAll}}
+                    <input type="submit" class="btn btn-success btn-lg">
+                    {{/unless}}
+                    <a class="btn btn-secondary btn-lg" href="/complaints">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

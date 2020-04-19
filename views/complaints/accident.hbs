@@ -1,0 +1,467 @@
+<div class="justify-content-center">
+    <form action="/complaints/accident" method="POST">
+        <div class="container">
+            {{#if disableAll}}
+            <fieldset disabled="true">
+                {{/if}}
+                <div class="row mb-4 mt-4">
+                    <div class="col-4">
+                        <h5><strong>DETAILS OF ACCIDENT CASES</strong></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Vehicle Type</label>
+                        <select class="custom-select" id="vehicleType" name="vehicleType">
+                            <option>Choose...</option>
+                            <option value="car" {{{isSelected form.vehicleType 'car'}}}>Car</option>
+                            <option value="scooter" {{{isSelected form.vehicleType 'scooter'}}}>Scooter</option>
+                            <option value="motorCycle" {{{isSelected form.vehicleType 'motorCycle'}}}>Motor cycle
+                            </option>
+                            <option value="bus" {{{isSelected form.vehicleType 'bus'}}}>Bus</option>
+                            <option value="van" {{{isSelected form.vehicleType 'van'}}}>Van</option>
+                            <option value="auto" {{{isSelected form.vehicleType 'auto'}}}>Autorikshaw</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label>Date of incident</label>
+                        <input type="date" class="form-control" id="Date of incident" placeholder="" name="dateIncident"
+                            value={{form.dateIncident}}>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Time of incident</label>
+                        <input type="Time" class="form-control" id="appt" placeholder="" name="timeIncident"
+                            value={{form.timeIncident}}>
+                        <br>
+                    </div>
+                    <div class="col-6">
+                        <label>Location</label>
+                        <input type="text" class="form-control" id="Location" placeholder="" name="accidentLocation"
+                            value={{form.accidentLocation}}>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Road Name</label>
+                        <input type="text" class="form-control" placeholder="" name="roadName" value={{form.roadName}}>
+                        <br>
+                    </div>
+                    <div class="col-6">
+                        <label>Weather</label>
+                        <select class="custom-select" id="weatherType" name="weatherType">
+                            <option>Choose...</option>
+                            <option value="clear" {{{isSelected form.weatherType 'clear'}}}>clear</option>
+                            <option value="snow" {{{isSelected form.weatherType 'snow'}}}>Snow</option>
+                            <option value="sleet" {{{isSelected form.weatherType 'sleet'}}}>Sleet</option>
+                            <option value="fog" {{{isSelected form.weatherType 'fog'}}}>Fog</option>
+                            <option value="rain" {{{isSelected form.weatherType 'rain'}}}>Rain</option>
+                            <option value="daylight" {{{isSelected form.weatherType 'daylight'}}}>Daylight</option>
+                            <option value="sunny" {{{isSelected form.weatherType 'sunny'}}}>Sunny</option>
+                            <option value="dawn" {{{isSelected form.weatherType 'dawn'}}}>Dawn</option>
+                            <option value="other" {{{isSelected form.weatherType 'other'}}}>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Road Conditions</label>
+                        <select class="custom-select" id="roadConditions" name="roadConditions">
+                            <option>Choose...</option>
+                            <option value="lanesMarked" {{{isSelected form.roadConditions 'lanesMarked'}}}>Lanes Marked
+                            </option>
+                            <option value="concrete" {{{isSelected form.roadConditions 'concrete'}}}>Concrete</option>
+                            <option value="unmarked" {{{isSelected form.roadConditions 'unmarked'}}}>Unmarked</option>
+                            <option value="gravel" {{{isSelected form.roadConditions 'gravel'}}}>Gravel</option>
+                            <option value="mud" {{{isSelected form.roadConditions 'mud'}}}>Mud</option>
+                            <option value="cracks" {{{isSelected form.roadConditions 'cracks'}}}>Cracks/Holes</option>
+                            <option value="underConstruction" {{{isSelected form.roadConditions 'underConstruction'}}}>
+                                Under
+                                Construction</option>
+                            <option value="other" {{{isSelected form.roadConditions 'other'}}}>Other</option>
+                        </select>
+                        <br><br>
+                    </div>
+                    <div class="col-6">
+                        <label>Type of accidents</label>
+                        <select class="custom-select" id="typeOfAccident" name="typeOfAccident">
+                            <option>Choose...</option>
+                            <option value="rearEnd" {{{isSelected form.typeOfAccident 'rearEnd'}}}> Rear-end collisions
+                            </option>
+                            <option value="sideImpact" {{{isSelected form.typeOfAccident 'sideImpact'}}}> Side-impact
+                                collisions</option>
+                            <option value="sideSwipe" {{{isSelected form.typeOfAccident 'sideSwipe'}}}> Sideswipe
+                                collisions
+                            </option>
+                            <option value="headOn" {{{isSelected form.typeOfAccident 'headOn'}}}> Head-on collisions
+                            </option>
+                            <option value="multiple" {{{isSelected form.typeOfAccident 'multiple'}}}> Multiple vehicle
+                                collisions</option>
+                            <option value="single" {{{isSelected form.typeOfAccident 'single'}}}> Single vehicle
+                                accidents
+                            </option>
+                            <option value="hitAndRun" {{{isSelected form.typeOfAccident 'hitAndRun'}}}> Hit-and-run
+                                accidents</option>
+                            <option value="vehicleRoll" {{{isSelected form.typeOfAccident 'vehicleRoll'}}}> Vehicle
+                                rollover
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Cause of Accident</label>
+                        <select class="custom-select" id="causeOfAccident" name="causeOfAccident">
+                            <option>Choose...</option>
+                            <option value="speeding" {{{isSelected form.causeOfAccident 'speeding'}}}> Speeding</option>
+                            <option value="traffic" {{{isSelected form.causeOfAccident 'traffic'}}}> Traffic</option>
+                            <option value="gridLock" {{{isSelected form.causeOfAccident 'gridLock'}}}> Gridlock</option>
+                            <option value="reckLess" {{{isSelected form.causeOfAccident 'reckLess'}}}> Recklessness
+                            </option>
+                            <option value="distracted" {{{isSelected form.causeOfAccident 'distracted'}}}> Distracted
+                                driving</option>
+                            <option value="drugAbuse" {{{isSelected form.causeOfAccident 'drugAbuse'}}}> Drug abuse
+                            </option>
+                            <option value="drunk" {{{isSelected form.causeOfAccident 'drunk'}}}> Drunk driving</option>
+                            <option value="cellPhone" {{{isSelected form.causeOfAccident 'cellPhone'}}}> Cellphone use
+                                include text meassaging</option>
+                            <option value="fatigue" {{{isSelected form.causeOfAccident 'fatigue'}}}> Driver fatigue or
+                                falling asleep behind the wheel
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-4 mt-4">
+                    <div class="col-4">
+                        <h5><strong>OWNER(DRIVER OF VEHICLE #1)</strong></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>Name<font color="red">*</font></label> <input type="text" class="form-control" id="Name"
+                            required placeholder="" name="nameOwner" value={{form.nameOwner}}>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Vehicle<font color="red">*</font></label><input type="text" class="form-control"
+                            id="Vehicle" required placeholder="" name="vehicleName" value={{form.vehicleName}}></font>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>License Plate<font color="red">*</font></label><input type="text" class="form-control"
+                            id="License Plate" required placeholder="" name="licensePlate"
+                            value={{form.licensePlate}}><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>Vehicle Identification<font color="red">*</font></label><input type="text"
+                            class="form-control" id="vehicle Identification" required placeholder=""
+                            name="vehicleIdentification" value={{form.vehicleIdentification}}>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Vehicle Model<font color="red">*</font></label><input type="text" class="form-control"
+                            id="vehicle Model" required placeholder="" name="vehicleModel" value={{form.vehicleModel}}>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Drivers License<font color="red">*</font></label><input type="text" class="form-control"
+                            id="Drivers License" required placeholder="" name="driversLicense"
+                            value={{form.driversLicense}}><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="" name="emailId"
+                            value={{form.emailId}}>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Birth Date</label>
+                        <input type="text" class="form-control" id="Birth date" placeholder="dd/mm/yyyy"
+                            name="dateBirth" value={{form.dateBirth}}><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Gender</label>
+                        <select class="custom-select" id="gender" name="gender">
+                            <option value="M" {{{isSelected form.gender 'M'}}}>Male</option>
+                            <option value="F" {{{isSelected form.gender 'F'}}}>Female</option>
+                            <option value="O" {{{isSelected form.gender 'O'}}}>Others</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>Relationship to Driver(If not Owner)</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="relationshipDrivers"
+                            value={{form.relationshipDrivers}}>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Address</label>
+                        <input type="text" class="form-control" id="" placeholder="1234 Main St" name="addressOne"
+                            value={{form.addressOne}}>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Number</label>
+                        <input type="text" class="form-control" id="" placeholder="+91" name="numberOne"
+                            value={{form.numberOne}}><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h6><strong>SPECIFIC TYPE OF INJURY OR
+                                ILLNESS</strong></h6><br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="fractureInjury"
+                                {{isCheckBoxChecked form.fractureInjury}}>Fracture
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="foreignbodyInjury"
+                                {{{isCheckBoxChecked form.foreignbodyInjury}}}>Foreign Body
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="bruisesInjury"
+                                {{{isCheckBoxChecked form.bruisesInjury}}}>Bruises
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="burnsInjury" {{{isCheckBoxChecked form.bruisesInjury}}}>Burns
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="sprainInjury" {{{isCheckBoxChecked form.sprainInjury}}}>Sprain
+                            or Strain
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="cutInjury" {{{isCheckBoxChecked form.cutInjury}}}>Cut
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="otherInjury" {{{isCheckBoxChecked form.otherInjury}}}>Other
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <h6><strong>PARTS OF BODY AFFECTED</strong></h6>
+                        <br>
+                        <label class="form-check form-check-inline"><br>
+                            <input type="checkbox" name="legPart" {{isCheckBoxChecked form.legPart}}>Legs
+                        </label>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="lowerBack" {{isCheckBoxChecked form.lowerBack}}>Lower
+                            Back
+                        </label>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="leftArm" {{isCheckBoxChecked form.leftArm}}>Left Arm
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="feetInjury" {{isCheckBoxChecked form.feetInjury}}>Feet
+                        </label>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="upperBack" {{isCheckBoxChecked form.upperBack}}>Upper
+                            Back
+                        </label>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="rightArm" {{isCheckBoxChecked form.rightArm}}>Right Arm
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="trunksInjury" {{isCheckBoxChecked form.trunksInjury}}>Trunks
+                        </label>
+
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="eyeInjury" {{isCheckBoxChecked form.eyeInjury}}>Eyes
+                        </label>
+
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="faceNeck" {{isCheckBoxChecked form.faceNeck}}>Face
+                            and Neck
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="handsInjury" {{isCheckBoxChecked form.handsInjury}}>Hands
+                        </label>
+                        <br>
+                        <label class="form-check form-check-inline">
+                            <input type="checkbox" name="otherDamage" {{isCheckBoxChecked form.otherDamage}}>Other
+                        </label>
+                        <br><br>
+                    </div>
+                </div>
+                <div class="row mb-4 mt-4">
+                    <div class="col-4">
+                        <h5><strong>OWNER(DRIVER OF VEHICLE #2)</strong></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>Name </label>
+                        <input type="text" class="form-control" id="Name" placeholder="" name="nameTwo"
+                            value={{form.nameTwo}}>
+                    </div>
+                    <div class="col-4">
+                        <label>Vehicle<font color="red">*</font></label><input type="text" class="form-control"
+                            id="Vehicle" required placeholder="" name="vehicleTwo" value={{form.vehicleTwo}}>
+                    </div>
+                    <div class="col-4">
+                        <label>License Plate<font color="red">*</font></label><input type="text" class="form-control"
+                            id="License Plate" required placeholder="" name="licenseTwo" value={{form.licenseTwo}}><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>Vehicle Identification<font color="red">*</font>
+                        </label><input type="text" class="form-control" id="vehicle Identification" required
+                            placeholder="" name="identificationTwo" value={{form.identificationTwo}}>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <label>Vehicle Model<font color="red">*</font></label><input type="text" class="form-control"
+                            id="vehicle Model" required placeholder="" name="modelTwo" value={{form.modelTwo}}>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <label> License State<font color="red">*</font></label><input type="text" class="form-control"
+                            id="State License" required placeholder="" name="licenseStateTwo"
+                            value={{form.licenseStateTwo}}><br>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h6>Did the person go to the hospital for emergency medical
+                            Treatment</h6>
+
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="treatment1" name="emergencyTreatment" class="custom-control-input"
+                                value="yes" {{{isChecked form.emergencyTreatment 'yes'}}}>
+                            <label class="custom-control-label" for="treatment1">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="treatment2" name="emergencyTreatment" class="custom-control-input"
+                                value="no" {{{isChecked form.emergencyTreatment 'no'}}}>
+                            <label class="custom-control-label" for="treatment2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h6>Number of people who trvalled by Vehicle</h6>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="people1" name="numberOfPeople" class="custom-control-input"
+                                value="one" {{{isChecked form.numberOfPeople 'one'}}}>
+                            <label class="custom-control-label" for="people1">1</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="people2" name="numberOfPeople" class="custom-control-input"
+                                value="morethanone" {{{isChecked form.numberOfPeople 'morethanone'}}}>
+                            <label class="custom-control-label" for="people2">More
+                                than 1</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h6>Wearing Seatbelt/Helmet</h6>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="seatBelt1" name="seatBelt" class="custom-control-input" value="yes"
+                                {{{isChecked form.seatBelt 'yes'}}}>
+                            <label class="custom-control-label" for="seatBelt1">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="seatBelt2" name="seatBelt" class="custom-control-input" value="no"
+                                {{{isChecked form.seatBelt 'no'}}}>
+                            <label class="custom-control-label" for="seatBelt2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h6>Has anyone died</h6>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="death1" name="anyDeath" class="custom-control-input" value="yes"
+                                {{{isChecked form.anyDeath 'yes'}}}>
+                            <label class="custom-control-label" for="death1">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="death2" name="anyDeath" class="custom-control-input" value="no"
+                                {{{isChecked form.anyDeath 'no'}}}>
+                            <label class="custom-control-label" for="death2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-6">
+                        <h6>Any witness to the
+                            incident</h6>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="witness1" name="witnessExists" class="custom-control-input"
+                                value="yes" {{{isChecked form.witnessExists 'yes'}}}>
+                            <label class="custom-control-label" for="witness1">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="witness2" name="witnessExists" class="custom-control-input"
+                                value="no" {{{isChecked form.witnessExists 'no'}}}>
+                            <label class="custom-control-label" for="witness2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <h6><strong>(If yes
+                                please
+                                provide Name
+                                & ph
+                                number):<br><br></strong>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Name</h6>
+                        <input type="text" class="form-control" id="Name" placeholder="" name="witnessName"
+                            value={{form.witnessName}}>
+                    </div>
+                    <div class="col-6">
+                        <h6>ph Number</h6>
+                        <input type="Ph number" class="form-control" id="ph number" placeholder="+91"
+                            name="witnessPhNumber" value={{form.witnessPhNumber}}>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="comment"><label>Any description of all injuries,and emergency
+                                response information</label></label>
+                        <textarea class="form-control" rows="5" id="comment"
+                            name="injuryDescription">{{form.peripheralDescription}}</textarea><br>
+                    </div>
+                    <div class="col-12">
+                        <label for="comment"><label>Any description of damage to
+                                vehicles</label></label>
+                        <textarea class="form-control" rows="5" id="comment"
+                            name="damageDescription">{{form.peripheralDescription}}</textarea><br>
+                    </div>
+                    <div class="col-12">
+                        <label for="comment"><label>Any description of damage to peripheral
+                                property(signs,trees,buildings,etc)</label></label>
+                        <textarea class="form-control" rows="5" id="comment"
+                            name="peripheralDescription">{{form.peripheralDescription}}</textarea>
+                    </div>
+                </div>
+                {{#if disableAll}}
+            </fieldset>
+            {{/if}}
+            <div class="row float-right m-4">
+                <div class="col-12">
+                    {{#unless disableAll}}
+                    <input type="submit" class="btn btn-success btn-lg">
+                    {{/unless}}
+                    <a class="btn btn-secondary btn-lg" href="/complaints">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
