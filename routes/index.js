@@ -9,4 +9,8 @@ router.get('/', function (req, res, next) {
   }
 });
 
+router.get('/pages/:pageId', function (req, res, next) {
+  res.render('pages/' + req.params.pageId, { title: req.params.pageId });
+});
+
 module.exports = router;
