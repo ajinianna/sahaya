@@ -12,21 +12,17 @@
 
 <body>
   <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3 col-md-2 py-4">
-            <h4 class="text-white"><a href="./pages/aboutus">About Us</a></h4>
-          </div>
-          <div class="col-sm-3 offset-md-2 py-4">
-            <h4 class="text-white"><a href="./pages/contactus">Contact Us</a></h4>
-          </div>
-          {{#if session.loggedin}}
-          <div class="col-sm-3 offset-md-2 py-4">
-            <h4 class="text-white"><a href="/users/logout">Logout</a></h4>
-          </div>
-          {{/if}}
-        </div>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Sahaya</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./pages/aboutus">About Us</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./pages/contactus">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
   </header>
   {{{body}}}
 </body>
