@@ -1,0 +1,19 @@
+<div class="justify-content-center">
+    <h1 class="h3 mb-3 font-weight-normal" style="margin-top:50px;">
+        <strong>
+            <center>Reset password request</center>
+        </strong>
+    </h1>
+    <form class="form-login" style="margin-left:500px" action="/users/resetpassword/request" method="POST">
+        <br><br><br>
+        <div class="form-group row">
+            <label for="mail" class="col-sm-2 col-form-label">Email address:</label>
+            <div class="col-sm-6">
+                <input name="mail" type="mail" class="form-control" id="mail" placeholder="Email" />
+            </div>
+        </div>
+        <div class="container">
+            <input type="submit" class="btn btn-success" />
+        </div>
+    </form>
+</div>

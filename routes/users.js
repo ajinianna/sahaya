@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var connection = require('../common/db')
-var sendOTP = require('../common/mail')
+var mail = require('../common/mail')
 
 router.post('/login', function (req, res, next) {
   var email = req.body.email;
@@ -62,7 +62,7 @@ router.get('/signup', (req, res, next) => {
   }
 
   connection.query(query)
-    .then(result => sendOTP(email, generatedOTP))
+    .then(result => mail.sendOTP(email, generatedOTP))
     .then(result => {
       req.session.loggedin = false;
       req.session.email = email;
@@ -93,6 +93,54 @@ router.get('/otp', (req, res, next) => {
         connection.query(updateOTPFlag)
           .then(updateResult => setSessionAfterLogin(req, req.session.email, req.session.userType, res))
           .catch(next)
+      }
+    }).catch(next)
+})
+
+router.get('/resetpassword/request', (req, res, next) => {
+  res.render('users/resetpassrequest', { title: 'Reset Password' });
+}).post('/resetpassword/request', (req, res, next) => {
+
+  var generatdCode = Math.floor(Math.random() * (99999 - 10000) + 10000);
+
+  const update = {
+    text: 'UPDATE public.users SET reset_code=$1 WHERE email = $2;',
+    values: [generatdCode, req.body.mail]
+  };
+
+  connection.query(update)
+    .then(r => mail.sendResetPassword(req.body.mail, generatdCode))
+    .then(r => {
+      req.session.loggedin = false;
+      req.session.resetmail = req.body.mail;
+      res.redirect('/users/resetpassword/submit');
+    }).catch(next);
+})
+
+router.get('/resetpassword/submit', (req, res, next) => {
+  res.render('users/resetpassword', { title: 'Reset Password Submit' });
+}).post('/resetpassword/submit', (req, res, next) => {
+
+  const verifyResetCode = {
+    text: 'SELECT * FROM users WHERE email = $1 AND reset_code = $2',
+    values: [req.session.resetmail, req.body.resetCode]
+  }
+
+  const updatePassword = {
+    text: 'UPDATE public.users SET password=$1 WHERE email = $2;',
+    values: [req.body.updatedPassword, req.session.resetmail]
+  };
+
+  connection.query(verifyResetCode)
+    .then(result => {
+      if (result.rows.length == 1) {
+        connection.query(updatePassword)
+        .then(result => mail.successReset(req.session.resetmail))
+          .then(result => res.redirect('/'))
+          .catch(next);
+      } else {
+        res.send('Invalid reset code');
+        res.end();
       }
     }).catch(next)
 })
