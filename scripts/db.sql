@@ -1,3 +1,25 @@
+-- Table: public.users
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users
+(
+    aadhar_number character varying(100) COLLATE pg_catalog."default",
+    current_otp integer,
+    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    phone_number numeric(20,0),
+    user_type user_type,
+    otp_verified boolean DEFAULT false,
+    reset_code integer,
+    CONSTRAINT users_pkey PRIMARY KEY (email)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.users
+    OWNER to postgres;
+
 -- Table: public.complaints
 
 -- DROP TABLE public.complaints;
@@ -14,25 +36,4 @@ CREATE TABLE public.complaints
 TABLESPACE pg_default;
 
 ALTER TABLE public.complaints
-    OWNER to postgres;
-
--- Table: public.users
-
--- DROP TABLE public.users;
-
-CREATE TABLE public.users
-(
-    aadhar_number character varying(100) COLLATE pg_catalog."default",
-    current_otp integer,
-    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    password character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    phone_number numeric(20,0),
-    user_type user_type,
-    otp_verified boolean DEFAULT false,
-    CONSTRAINT users_pkey PRIMARY KEY (email)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE public.users
     OWNER to postgres;
