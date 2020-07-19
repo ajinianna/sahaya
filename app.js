@@ -32,11 +32,14 @@ app.use(function (req, res, next) {
 });
 
 app.use(logger('dev'));//intializing logging
+// json parsing intialization- for sending data between UI and server
 app.use(express.json());
+// for encoding and decoding url
 app.use(express.urlencoded({ extended: false }));
+// for viewing public content(pictures,js)
 app.use(express.static(path.join(__dirname, 'public')));
 
-//checks whether user is logged in
+//checks whether user is logged in - function declaration
 const authChecker = (req, res, next) => {
   if (req.session.loggedin) {
       next();
