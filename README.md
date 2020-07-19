@@ -1,7 +1,7 @@
 # sahaya
 Sahaya Application code
 
-how to run
+how to runzdfsdfsdhrdfgbhdfhdfgdfgfdghdhg
 
 install postgres
 
