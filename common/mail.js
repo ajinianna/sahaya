@@ -1,3 +1,4 @@
+//  sending Email
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 

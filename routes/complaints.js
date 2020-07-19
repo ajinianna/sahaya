@@ -1,3 +1,4 @@
+// routes of complaint pages
 var express = require('express');
 var router = express.Router();
 
@@ -26,16 +27,20 @@ router.get('/', function (req, res, next) {
     addComplaintRoute(complaintType, complaintType));
 
 function addComplaintRoute(complaintType, header) {
+    
     router.get('/' + complaintType, (req, res, next) => {
+        // show empty forms
         res.render('complaints/' + complaintType, { title: header });
     }).post('/' + complaintType, (req, res, next) => {
+        // create new complaint
         insertComplaint(req, res, next, complaintType);
     }).get('/' + complaintType + '/:complaintId', (req, res, next) => {
+        // show already saved complaints
         getComplaint(req, res, next, complaintType, header);
     });
 }
 
-
+// each complaint has unique id,retrive using the unique id previously registerd cases
 function getComplaint(req, res, next, complaintType, title) {
     const selectQuery = {
         text: 'SELECT *	FROM public.complaints WHERE id=$1;',
